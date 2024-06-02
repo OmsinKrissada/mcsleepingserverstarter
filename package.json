@@ -17,11 +17,11 @@
     "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\""
   },
   "dependencies": {
-    "@jsprismarine/prismarine": "0.1.0-rc.49",
-    "@jsprismarine/raknet": "0.1.0-rc.49",
-    "@sfirew/minecraft-motd-parser": "^1.1.1",
-    "express": "^4.18.2",
-    "express-handlebars": "^7.0.4",
+    "@jsprismarine/prismarine": "0.4.4",
+    "@jsprismarine/raknet": "0.4.4",
+    "@sfirew/minecraft-motd-parser": "^1.1.2",
+    "express": "^4.19.2",
+    "express-handlebars": "^7.1.2",
     "js-yaml": "^4.1.0",
     "minecraft-protocol": "^1.47.0",
     "prismarine-chat": "^1.8.0",
@@ -29,8 +29,8 @@
     "winston": "^3.8.2"
   },
   "devDependencies": {
-    "@types/connect": "^3.4.35",
-    "@types/express": "^4.17.17",
+    "@types/connect": "^3.4.38",
+    "@types/express": "^4.17.21",
     "@types/jest": "^29.5.0",
     "@types/js-yaml": "^4.0.5",
     "@types/node": "^18.15.11",
@@ -76,5 +76,6 @@
     "assets": [
       "build/views/**/*"
     ]
-  }
+  },
+  "packageManager": "pnpm@9.1.4+sha512.9df9cf27c91715646c7d675d1c9c8e41f6fce88246f1318c1aa6a1ed1aeb3c4f032fcdf4ba63cc69c4fe6d634279176b5358727d8f2cc1e65b65f43ce2f8bfb0"
 }
