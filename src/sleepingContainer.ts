@@ -1,6 +1,5 @@
 import { ChildProcess, execSync, spawn } from "child_process";
 import { type } from "os";
-import { SleepingBedrock } from "./sleepingBedrock";
 import { SleepingDiscord } from "./sleepingDiscord";
 import {
   getMinecraftDirectory,
@@ -29,7 +28,6 @@ export class SleepingContainer implements ISleepingServer {
 
   sleepingMcServer?: SleepingMcJava;
   mcProcess?: ChildProcess;
-  brServer?: SleepingBedrock;
   webServer?: SleepingWeb;
 
   discord?: SleepingDiscord;
@@ -67,14 +65,6 @@ export class SleepingContainer implements ISleepingServer {
       } else {
         await this.sleepingMcServer?.init();
       }
-    }
-
-    if (this.settings.bedrockPort) {
-      this.brServer = new SleepingBedrock(
-        this.settings,
-        this.playerConnectionCallBack
-      );
-      await this.brServer?.init();
     }
 
     if (this.settings.discordWebhookUrl) {
@@ -141,10 +131,6 @@ export class SleepingContainer implements ISleepingServer {
       await this.sleepingMcServer.close();
     }
 
-    if (this.brServer) {
-      await this.brServer.close();
-    }
-
     if (isThisTheEnd || this.settings.webStopOnStart) {
       if (this.webServer) {
         this.webServer.close();
@@ -190,8 +176,7 @@ export class SleepingContainer implements ISleepingServer {
       }
 
       this.logger.info(
-        `[Container] ...Time to kill me if you want (${
-          this.settings.restartDelay / 1000
+        `[Container] ...Time to kill me if you want (${this.settings.restartDelay / 1000
         } secs)...`
       );
 
